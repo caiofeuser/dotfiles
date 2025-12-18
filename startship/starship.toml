@@ -1,0 +1,80 @@
+format = """
+$directory\
+$git_branch\
+$git_status\
+$fill\
+$python\
+$lua\
+$nodejs\
+$golang\
+$haskell\
+$rust\
+$ruby\
+$package\
+$aws\
+$docker_context\
+$jobs\
+$cmd_duration\
+$line_break\
+$character"""
+
+add_newline = true
+palette = 'dracula'
+
+[directory]
+style = 'bold fg:cyan'
+format = '[$path ]($style)'
+truncate_to_repo = true
+
+
+[git_branch]
+style = 'bold fg:pink'
+format = '[on](white) [$symbol$branch ]($style)'
+
+[git_status]
+style = ' bold fg:red'
+format = '([$all_status$ahead_behind]($style) )'
+
+[fill]
+symbol = ' '
+
+[package]
+symbol = '󰏗 '
+
+[aws]
+symbol = ' '
+style = 'yellow'
+format = '[$symbol($profile )(\[$duration\] )]($style)'
+
+[docker_context]
+symbol = ' '
+style = 'fg:#06969A'
+format = '[$symbol]($style) $path'
+detect_files = ['docker-compose.yml', 'docker-compose.yaml', 'Dockerfile']
+detect_extensions = ['Dockerfile']
+
+[jobs]
+symbol = ' '
+style = 'red'
+number_threshold = 1
+format = '[$symbol]($style)'
+
+[cmd_duration]
+min_time = 500
+style = 'fg:gray'
+format = '[$duration]($style)'
+
+[palettes.dracula]
+black = '#282a36'     # Background
+gray = '#44475a'      # Current Line / Selection
+white = '#f8f8f2'     # Foreground
+dark_blue = '#6272a4' # Comment
+blue = '#8be9fd'      # Cyan
+teal = '#8be9fd'      # Cyan
+cyan = '#8be9fd'      # Cyan
+green = '#50fa7b'     # Green
+red = '#ff5555'      # Red
+orange = '#ffb86c'    # Orange
+yellow = '#f1fa8c'    # Yellow
+purple = '#bd93f9'    # Purple
+pink = '#ff79c6'      # Pink (Core Dracula color)
