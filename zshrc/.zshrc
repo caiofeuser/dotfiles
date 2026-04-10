@@ -119,10 +119,10 @@ export STARSHIP_CONFIG="$HOME/.config/startship/starship.toml"
 # eza
 alias l="eza --icons"
 alias ls="eza -1 --icons"
-alias lsa="eza -lTag level=3 --icons"
+alias lsa="eza -lTag --icons"
 export ANDROID_HOME="/Users/caiofeuser/Library/Android/sdk"
 export PATH="$ANDROID_HOME/platform-tools:$PATH"
-
+bindkey '`' autosuggest-accept
 ###-begin-npm-completion-###
 #
 # npm command completion script
@@ -228,3 +228,13 @@ export TERM=xterm-256color
 export COLORTERM=truecolor
 alias clean-watch="sudo watchman watch-del-all && sudo watchman shutdown-server"
 eval "$(zoxide init zsh)"
+
+# bun completions
+[ -s "/Users/caiofeuser/.bun/_bun" ] && source "/Users/caiofeuser/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
+export NVM_DIR="$HOME/.nvm"
+[ -s "$(brew --prefix nvm)/nvm.sh" ] && \. "$(brew --prefix nvm)/nvm.sh"
+[ -s "$(brew --prefix nvm)/etc/bash_completion.d/nvm" ] && \. "$(brew --prefix nvm)/etc/bash_completion.d/nvm"
