@@ -1,0 +1,21 @@
+return {
+  {
+    "nvim-lualine/lualine.nvim",
+    opts = {
+      options = {
+        component_separators = "┃",
+        section_separators = { left = "", right = "" },
+      },
+      sections = {
+        lualine_a = { { "mode", right_padding = 2 } },
+        lualine_y = {
+          { "progress", separator = " ┃", padding = { left = 1, right = 0 } },
+          { "location", padding = { left = 0, right = 1 }, separator = { right = "" } },
+        },
+        lualine_z = {
+          section_separators = "┃",
+        },
+      },
+    },
+  },
+}
