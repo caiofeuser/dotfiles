@@ -19,6 +19,12 @@ vim.opt.rtp:prepend(lazypath)
 -- v...gsa( " surround selection
 -- gsd(     " delete parentheses
 -- gsr({    " change () to {}
+vim.keymap.set("n", "<D-Esc>", function()
+  vim.cmd("startinsert")
+  vim.schedule(function()
+    vscode.action("editor.action.triggerSuggest")
+  end)
+end, { silent = true })
 
 require("lazy").setup({
   spec = {

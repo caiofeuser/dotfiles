@@ -112,6 +112,9 @@ source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 source /opt/homebrew/share/zsh-interactive-cd/zsh-interactive-cd.plugin.zsh
 
+# editor
+export EDITOR=nvim
+
 # startship
 eval "$(starship init zsh)"
 export STARSHIP_CONFIG="$HOME/.config/startship/starship.toml"
@@ -122,7 +125,16 @@ alias ls="eza -1 --icons"
 alias lsa="eza -lTag --icons"
 export ANDROID_HOME="/Users/caiofeuser/Library/Android/sdk"
 export PATH="$ANDROID_HOME/platform-tools:$PATH"
-bindkey '`' autosuggest-accept
+
+# yazi
+function y() {
+	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
+	command yazi "$@" --cwd-file="$tmp"
+	IFS= read -r -d '' cwd < "$tmp"
+	[ "$cwd" != "$PWD" ] && [ -d "$cwd" ] && builtin cd -- "$cwd"
+	rm -f -- "$tmp"
+}
+
 ###-begin-npm-completion-###
 #
 # npm command completion script
@@ -191,6 +203,8 @@ elif type compctl &>/dev/null; then
   }
   compctl -K _npm_completion npm
 fi
+
+bindkey '`' autosuggest-accept
 ###-end-npm-completion-###
 
 
