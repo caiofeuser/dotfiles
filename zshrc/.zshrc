@@ -122,7 +122,8 @@ export STARSHIP_CONFIG="$HOME/.config/startship/starship.toml"
 # eza
 alias l="eza --icons"
 alias ls="eza -1 --icons"
-alias lsa="eza -lTag --icons"
+alias lsa="eza -lTag --icons --level=2 --ignore-glob='*.log|node_modules'"
+alias tree='eza --tree'
 export ANDROID_HOME="/Users/caiofeuser/Library/Android/sdk"
 export PATH="$ANDROID_HOME/platform-tools:$PATH"
 
