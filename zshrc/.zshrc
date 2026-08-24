@@ -69,9 +69,6 @@ ZSH_THEME="robbyrussell"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-# plugins=(git, zsh-syntax-highlighting,zsh-autosuggestions)
-
-source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
@@ -102,15 +99,28 @@ source $ZSH/oh-my-zsh.sh
 
 ENABLE_CORRRECTION="true"
 
+# Enable correct path for the python server:
+export PATH="/opt/homebrew/opt/python@3.14/libexec/bin:/opt/homebrew/bin:$PATH"
 
 
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 export PATH="$PATH:$HOME/.rvm/bin"
 ZSH_DISABLE_COMPFIX="true"
-# plugins
-source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+plugins=(git zsh-interactive-cd)
+
+source $ZSH/oh-my-zsh.sh
+
+# User configuration
+ENABLE_CORRRECTION="true"
+
+# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
+export PATH="$PATH:$HOME/.rvm/bin"
+ZSH_DISABLE_COMPFIX="true"
+
+# Homebrew Zsh plugins
 source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-source /opt/homebrew/share/zsh-interactive-cd/zsh-interactive-cd.plugin.zsh
+source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # editor
 export EDITOR=nvim
